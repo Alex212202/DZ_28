@@ -28,6 +28,16 @@ public class Test1 {
         driver.findElement(By.id("react-burger-menu-btn")).click();
         assertEquals(driver.findElement(By.id("logout_sidebar_link")).findElement(By.xpath("//a[contains(text(),'Logout')]")).getText(),"LOGOUT");
         driver.findElement(By.id("logout_sidebar_link")).click();
+        assertEquals(driver.findElement(By.id("user-name")).getText(),"");
+        assertEquals(driver.findElement(By.id("password")).getText(),"");
+        assertEquals(driver.findElement(By.id("login-button")).getText(),"");
+        assertEquals(driver.findElement(By.id("login_credentials")).getText(),"Accepted usernames are:\n" +
+                "standard_user\n" +
+                "locked_out_user\n" +
+                "problem_user\n" +
+                "performance_glitch_user");
+        assertEquals(driver.findElement(By.className("login_credentials_wrap-inner")).findElement(By.className("login_password")).getText(),"Password for all users:\n" +
+                "secret_sauce");
         driver.close();
     }
 
